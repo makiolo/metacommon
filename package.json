@@ -1,6 +1,6 @@
 {
   "name": "metacommon",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "C++ Header-only repository with macros and very much metaprogramming",
   "repository": {
     "type": "git",
@@ -15,6 +15,9 @@
   "bugs": {
     "url": "https://github.com/makiolo/metacommon/issues"
   },
-  "homepage": "https://github.com/makiolo/metacommon#readme"
+  "homepage": "https://github.com/makiolo/metacommon#readme",
+  "devDependencies": {
+    "cmaki": "^1.0.27",
+    "cmaki_generator": "^1.0.0"
+  }
 }
-
