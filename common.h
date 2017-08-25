@@ -255,7 +255,7 @@ auto bind(F&& f, Args&&... args) {
 // method macros
 #define DEFINE_KEY(__CLASS__) \
 	constexpr static char const* KEY() { return #__CLASS__; } \
-	virtual const std::string& getKEY() const { static std::string key = #__CLASS__; return key; } \
+	virtual const char* getKEY() const { static const char* key = #__CLASS__; return key; } \
 
 // method non-macros (yes, exists optional macro :D)
 #define DEFINE_HASH(__CLASS__)  \
