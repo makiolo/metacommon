@@ -202,10 +202,16 @@ constexpr auto index_apply(F&& f) {
 }
 
 template <class Tuple>
-constexpr auto head(Tuple t) {
+constexpr auto _head(Tuple t) {
     return index_apply<1>([&](auto... Is) {
         return std::make_tuple(std::get<Is>(t)...);
     });
+}
+
+template <class Tuple>
+constexpr auto head(Tuple t)
+{
+    return std::get<0>(_head(t));
 }
 
 template <class Tuple>
@@ -219,7 +225,7 @@ template <class Tuple>
 constexpr auto reverse(Tuple t) {
     return index_apply<std::tuple_size<Tuple>{}>(
         [&](auto... Is) {
-            return make_tuple(
+            return std::make_tuple(
                 std::get<std::tuple_size<Tuple>{} - 1 - Is>(t)...);
         });
 }
@@ -256,7 +262,13 @@ auto bind(F&& f, Args&&... args) {
 	namespace std {             \
 	template <>                 \
 	struct hash<__CLASS__>      \
-	{ size_t operator()() const { static size_t h = std::hash<std::string>()(#__CLASS__); return h; }	}; } \
+	{ size_t operator()() const { static size_t h = std::hash<const char*>()(#__CLASS__); return h; }	}; } \
+
+#define DEFINE_HASH_CUSTOM(__CLASS__, __TYPE__, __VALUE__)  \
+	namespace std {             \
+	template <>                 \
+	struct hash<__CLASS__>      \
+	{ size_t operator()() const { static size_t h = std::hash<__TYPE__>()(__VALUE__); return h; }	}; } \
 
 template<typename T>
 class has_key
