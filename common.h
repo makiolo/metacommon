@@ -254,15 +254,15 @@ auto bind(F&& f, Args&&... args) {
 
 // method macros
 #define DEFINE_KEY(__CLASS__) \
-	constexpr static char const* KEY() { return #__CLASS__; } \
-	virtual const char* getKEY() const { static const char* key = #__CLASS__; return key; } \
+	constexpr static std::string KEY() { return #__CLASS__; } \
+	virtual const std::string& getKEY() const { static std::string key = #__CLASS__; return key; } \
 
 // method non-macros (yes, exists optional macro :D)
 #define DEFINE_HASH(__CLASS__)  \
 	namespace std {             \
 	template <>                 \
 	struct hash<__CLASS__>      \
-	{ size_t operator()() const { static size_t h = std::hash<const char*>()(#__CLASS__); return h; }	}; } \
+	{ size_t operator()() const { static size_t h = std::hash<std::string>()(#__CLASS__); return h; }	}; } \
 
 #define DEFINE_HASH_CUSTOM(__CLASS__, __TYPE__, __VALUE__)  \
 	namespace std {             \
