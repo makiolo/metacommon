@@ -15,9 +15,5 @@
   "bugs": {
     "url": "https://github.com/makiolo/metacommon/issues"
   },
-  "homepage": "https://github.com/makiolo/metacommon#readme",
-  "devDependencies": {
-    "cmaki": "^1.0.27",
-    "cmaki_generator": "^1.0.0"
-  }
+  "homepage": "https://github.com/makiolo/metacommon#readme"
 }
