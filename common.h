@@ -12,6 +12,16 @@
 #include <vector>
 #include <tuple>
 
+#ifndef STATIC_MULTITHREAD
+#if defined(__clang__)
+#define STATIC_MULTITHREAD static
+#elif defined(__GNUC__) || defined(__GNUG__)
+#define STATIC_MULTITHREAD static __thread
+#elif defined(_MSC_VER)
+#define STATIC_MULTITHREAD __declspec(thread) static
+#endif
+#endif
+
 namespace ctti {
 
 // http://stackoverflow.com/a/15863804
