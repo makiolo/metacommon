@@ -1,3 +1,3 @@
 @echo off
-metacommon is a header only library
+echo metacommon is a header only library
 
