@@ -1,10 +1,7 @@
 - metacommon:
     <<: *thirdparty_defaults
-    version: 0.0.0.0
-    version_manager: git
     post_install:
         - ./*.h include/metacommon/
-    mode: dr
     source: https://github.com/makiolo/metacommon.git
     build:
         |
@@ -15,4 +12,3 @@
         - dummy:
             info:
                 <<: *library_dynamic
-
