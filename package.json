@@ -12,7 +12,7 @@
     "setup": "echo ok",
     "compile": "echo ok",
     "install": "echo ok",
-    "test": "cmaki tests",
+    "test": "echo ok",
     "upload": "cmaki upload"
   },
   "keywords": [
