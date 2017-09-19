@@ -7,7 +7,7 @@
     "url": "git+https://github.com/makiolo/metacommon.git"
   },
   "scripts": {
-    "ci": "cmaki ci",
+    "ci": "curl -s https://raw.githubusercontent.com/makiolo/cmaki_scripts/master/ci.sh | bash",
     "clean": "cmaki clean",
     "setup": "echo ok",
     "compile": "echo ok",
