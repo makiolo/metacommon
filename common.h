@@ -136,6 +136,8 @@ using str_type = typename str_type_impl < T_StrProvider, c_strlen(T_StrProvider:
 
 namespace mc {
 
+/*
+
 template<typename ... Args>
 class get_type
 {
@@ -218,11 +220,15 @@ constexpr auto _head(Tuple t) {
     });
 }
 
+*/
+
 template <class Tuple>
 constexpr auto head(Tuple t)
 {
     return std::get<0>(_head(t));
 }
+
+/*
 
 template <class Tuple>
 constexpr auto tail(Tuple t) {
@@ -248,6 +254,8 @@ constexpr auto apply(Function&& f, Tuple&& t) {
             return std::forward<Function>(f)( std::get<Is>(std::forward<Tuple>(t))... );
         });
 }
+
+*/
 
 // http://talesofcpp.fusionfenix.com/post-14/true-story-moving-past-bind
 template <typename F, typename ...Args>
