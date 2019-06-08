@@ -22,7 +22,7 @@
 #endif
 #endif
 
-#if __cplusplus < 201402L
+#if __cplusplus < 201402L && 0
 
 namespace std {
 
